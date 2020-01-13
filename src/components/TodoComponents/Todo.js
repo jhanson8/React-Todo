@@ -3,7 +3,8 @@ import React from 'react';
 const Item = (props) => {
 
 return(
-  <div>
+  <div className={`item${props.item.completed ? ' completed' : ''}`}
+      onClick={() => props.toggleItem(props.item.id)}>
 
 <p>{props.item.name}</p>
 

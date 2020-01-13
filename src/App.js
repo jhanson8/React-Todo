@@ -1,6 +1,8 @@
 /* jshint esversion: 9 */
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import TodoList from "./components/TodoComponents/TodoList";
+import TodoForm from "./components/TodoComponents/TodoForm";
 
 
 const todo = [
@@ -66,15 +68,22 @@ addItem = itemName => {
   // design `App` to be the parent component of your application.
   // this component is going to take care of state, and any change handlers you need to work with your state
   render() {
-    console.log("rendering..");
+    console.log("rendering...");
     return (
       <div>
-        <h2>Welcome to your Todo App!</h2>
-      </div>
+      <div className="App">
+          <h1>TodoList</h1>
+          <TodoForm addItem={this.addItem} />
+
+        </div>
+        <TodoList
+          todo={this.state.todoList}
+          toggleItem={this.toggleItem}
+        />
+        </div>
+
     );
   }
 }
 
 export default App;
-const rootElement = document.getElementById('root');
-ReactDOM.render(<App />, rootElement);
