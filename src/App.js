@@ -25,11 +25,13 @@ constructor() {
   this.state = {
     todoList: todo,
   };
+  this.deleteItem = this.deleteItem.bind(this);
+
 }
 
 
 //toggle
-toggleItem = id => {
+toggleItem =  id => {
   // find the item we clicked on
   // toggle the purchased field
   // update state with the new grocery data
@@ -55,7 +57,7 @@ toggleItem = id => {
 //add todo item
 addItem = itemName => {
    const newItem = {
-     name: itemName,
+     task: itemName,
      id: Date.now(),
      completed: false
    };
@@ -63,6 +65,30 @@ addItem = itemName => {
      todoList: [...this.state.todoList, newItem]
    });
  };
+
+// remove item
+//  deleteItem = id => {
+//    this.setState({
+//            todoList: this.state.todoList.filter(i => i !== id)
+//  });
+// };
+
+
+// deleteItem = item => {
+//     //either use filter
+//     const { todoList } = this.state;
+//     const newTodos = todoList.filter(item === true);
+//     this.setState({ todoList: newTodos});
+// };
+deleteItem = id => {
+    this.setState({
+      todoList: this.state.todoList.filter(
+        item => item.idItem !== id,
+      ),
+    });
+  };
+
+
 
 
   // design `App` to be the parent component of your application.
@@ -79,6 +105,7 @@ addItem = itemName => {
         <TodoList
           todo={this.state.todoList}
           toggleItem={this.toggleItem}
+          deleteItem={this.deleteItem}
         />
         </div>
 
