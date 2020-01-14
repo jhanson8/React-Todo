@@ -80,12 +80,14 @@ addItem = itemName => {
 //     const newTodos = todoList.filter(item === true);
 //     this.setState({ todoList: newTodos});
 // };
+
 deleteItem = id => {
     this.setState({
       todoList: this.state.todoList.filter(
-        item => item.idItem !== id,
+        item => item.completed !== true,
       ),
     });
+
   };
 
 
