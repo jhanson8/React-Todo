@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import TodoList from "./components/TodoComponents/TodoList";
 import TodoForm from "./components/TodoComponents/TodoForm";
+import Todo from "./components/TodoComponents/Todo.css";
 
 
 const todo = [
@@ -98,9 +99,9 @@ deleteItem = id => {
   render() {
     console.log("rendering...");
     return (
-      <div>
+      <div className={'app'}>
       <div className="App">
-          <h1>TodoList</h1>
+          <h1>To-do List:</h1>
           <TodoForm addItem={this.addItem} />
 
         </div>
